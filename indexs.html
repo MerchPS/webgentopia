@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Collaboration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            overflow-x: hidden;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ffc107, #ff4500); /* Gradasi kuning ke oranye */
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+        }
+        .header-bottom {
+            background-color: #ffc107;
+            height: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .content {
+            margin: 50px 20px;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+            opacity: 0;  /* Initial opacity for fade-in effect */
+            transform: translateY(20px); /* Initial translate for fade effect */
+            transition: all 1s ease-out; /* Smooth transition */
+        }
+        .content.show {
+            opacity: 1;  /* Fade in */
+            transform: translateY(0); /* Bring element back to normal position */
+        }
+        .join-button, .alert-button {
+            background-color: #ffc107;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin-top: 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .join-button i, .alert-button i {
+            margin-right: 10px; /* Adds spacing between the icon and text */
+        }
+
+        /* Hover effect with glowing pulse */
+        .join-button:hover, .alert-button:hover {
+            background-color: #e0a800;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .join-button::before, .alert-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.5s;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .join-button:hover::before, .alert-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        /* Glowing effect */
+        .glow {
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px #ffc107, 0 0 20px #ffc107, 0 0 30px #ffc107;
+            }
+            to {
+                box-shadow: 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff4500;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with logo and yellow-orange gradient -->
+    <header class="header">
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <div class="header-bottom"></div>
+    </header>
+
+    <!-- Main content with fade-in effects -->
+    <div class="content">
+        <h1 class="text-4xl font-bold mb-4">Growtopia Private Server Collaboration</h1>
+        <p class="text-lg">Welcome to the exclusive collaboration between Merch X GenTopia. Experience the ultimate private server experience with custom content, new mechanics, and more!</p>
+        <button class="alert-button glow" onclick="showAlert()">
+            <i class="fas fa-info-circle"></i> Learn More
+        </button>
+    </div>
+
+    <div class="content">
+        <h2 class="text-3xl font-semibold mt-12">Exclusive Features</h2>
+        <p class="text-lg mt-4">Explore unique features in this server that you won't find anywhere else. Build, trade, and explore new adventures with Merch X GenTopia.</p>
+    </div>
+
+    <div class="content">
+        <h2 class="text-3xl font-semibold mt-12">Join the Community</h2>
+        <p class="text-lg mt-4">Become a part of a growing community where creativity meets innovation. Whether you're a casual player or a veteran, there's something for everyone!</p>
+        <a href="about.html" class="join-button glow">
+            <i class="fas fa-users"></i> Join Our Community
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024-2025 Merch X GenTopia</p>
+    </footer>
+
+    <script>
+        // SweetAlert function
+        function showAlert() {
+            Swal.fire({
+                title: 'Welcome!',
+                text: 'Discover the unique collaboration between Merch X GenTopia in the world of Growtopia!',
+                icon: 'info',
+                confirmButtonText: 'Cool'
+            });
+        }
+
+        // Scroll-triggered fade-in effect
+        const contents = document.querySelectorAll('.content');
+
+        const scrollFadeIn = () => {
+            contents.forEach(content => {
+                const position = content.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition) {
+                    content.classList.add('show');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', scrollFadeIn);
+
+        // Trigger fade-in on page load
+        window.addEventListener('load', scrollFadeIn);
+    </script>
+</body>
+</html>

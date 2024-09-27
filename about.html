@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Growtopia Private Server Collaboration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
+
+        /* Button styling with additional effects */
+        .link-button {
+            background-color: #ffc107; /* Yellow color but not too bright */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            width: 300px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease, transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .link-button i {
+            margin-right: 10px;
+        }
+
+        .link-button:hover {
+            background-color: #e0a800;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        /* Button hover effect with ripple */
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%) scale(0);
+            transition: all 0.5s;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .link-button:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Text shadow and hover effect */
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            margin-bottom: 50px;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fade-in effect for buttons */
+        .fade-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+
+        .fade-scroll.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Logo Image -->
+    <img src="logo.jpg" alt="Logo" class="logo fade-scroll">
+
+    <h1>Join Our Community</h1>
+
+    <!-- WhatsApp Group Link Button with icon -->
+    <a href="https://chat.whatsapp.com/D9rdFx0GYqq6PkQMq2Dx9H" class="link-button fade-scroll" target="_blank">
+        <i class="fab fa-whatsapp"></i> Join WhatsApp Group
+    </a>
+
+    <!-- Discord Link Button with icon -->
+    <a href="#" class="link-button fade-scroll" target="_blank">
+        <i class="fab fa-discord"></i> Community Discord
+    </a>
+
+    <!-- Official Website Link Button -->
+    <a href="indexs.html" class="link-button fade-scroll" target="_blank">
+        <i class="fas fa-globe"></i> Official Website
+    </a>
+
+    <script>
+        // Apply the 'show' class as soon as the DOM is fully loaded
+        window.addEventListener('DOMContentLoaded', () => {
+            const fadeElements = document.querySelectorAll('.fade-scroll');
+            fadeElements.forEach(element => {
+                element.classList.add('show');
+            });
+        });
+    </script>
+
+</body>
+</html>
