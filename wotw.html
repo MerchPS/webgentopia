@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of the Week Event</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('bg.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .content-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 900px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            background-color: #ffc107;
+            padding: 15px 30px;
+            border-radius: 25px;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .tab.active {
+            background-color: #e0a800;
+            transform: translateY(-5px) scale(1.05);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .form-box input[type="text"], .form-box input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background-color: white;
+        }
+        .form-box button {
+            background-color: #ffc107;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .world-container {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .world-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main content box -->
+    <div class="content-box">
+        <div class="tabs">
+            <div class="tab active" onclick="showTab('join')">Join The WOTW</div>
+            <div class="tab" onclick="showTab('cekworld')">See World Submissions</div>
+        </div>
+
+        <!-- Join The WOTW Tab -->
+        <div id="join" class="tab-content active">
+            <h2 class="text-2xl font-semibold">Join World of the Week Event</h2>
+            <div class="form-box">
+                <form id="wotw-form" action="submit_wotw.php" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="username" placeholder="Enter your Growtopia Username" required>
+                    <input type="text" name="world" placeholder="Enter World Name" required>
+                    <input type="file" name="world_image" accept="image/*" required>
+                    <p>Max file size: 5MB</p>
+                    <button type="submit">Submit World</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- See World Submissions Tab -->
+        <div id="cekworld" class="tab-content">
+            <h2 class="text-2xl font-semibold mb-5">Submitted Worlds</h2>
+
+            <!-- Example of how submitted worlds will appear -->
+            <div class="world-container">
+                <h3 class="text-xl font-bold">World Name: FantasyLand</h3>
+                <p>Submitted by: Player123</p>
+                <img src="world_fantasyland.jpg" alt="FantasyLand">
+            </div>
+
+            <div class="world-container">
+                <h3 class="text-xl font-bold">World Name: CastleVille</h3>
+                <p>Submitted by: PlayerXYZ</p>
+                <img src="world_castleville.jpg" alt="CastleVille">
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle between tabs
+        function showTab(tabId) {
+            // Remove active class from all tabs and contents
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+            // Add active class to the selected tab and content
+            document.getElementById(tabId).classList.add('active');
+            document.querySelector(`[onclick="showTab('${tabId}')"]`).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
