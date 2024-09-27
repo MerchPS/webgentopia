@@ -49,7 +49,7 @@
             opacity: 1;  /* Fade in */
             transform: translateY(0); /* Bring element back to normal position */
         }
-        .join-button, .alert-button, .wotw-button {
+        .join-button, .alert-button {
             background-color: #ffc107;
             color: white;
             padding: 15px 30px;
@@ -66,18 +66,18 @@
             overflow: hidden;
         }
 
-        .join-button i, .alert-button i, .wotw-button i {
+        .join-button i, .alert-button i {
             margin-right: 10px; /* Adds spacing between the icon and text */
         }
 
         /* Hover effect with glowing pulse */
-        .join-button:hover, .alert-button:hover, .wotw-button:hover {
+        .join-button:hover, .alert-button:hover {
             background-color: #e0a800;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
             transform: translateY(-5px) scale(1.05);
         }
 
-        .join-button::before, .alert-button::before, .wotw-button::before {
+        .join-button::before, .alert-button::before {
             content: '';
             position: absolute;
             top: 50%;
@@ -91,7 +91,7 @@
             z-index: -1;
         }
 
-        .join-button:hover::before, .alert-button:hover::before, .wotw-button:hover::before {
+        .join-button:hover::before, .alert-button:hover::before {
             transform: translate(-50%, -50%) scale(1);
         }
 
@@ -144,15 +144,6 @@
         <p class="text-lg mt-4">Become a part of a growing community where creativity meets innovation. Whether you're a casual player or a veteran, there's something for everyone!</p>
         <a href="about.html" class="join-button glow">
             <i class="fas fa-users"></i> Join Our Community
-        </a>
-    </div>
-
-    <!-- World of the Week Event Button -->
-    <div class="content">
-        <h2 class="text-3xl font-semibold mt-12">World of the Week Event</h2>
-        <p class="text-lg mt-4">Participate in the weekly event and showcase your creative world-building skills!</p>
-        <a href="wotw.html" class="wotw-button glow">
-            <i class="fas fa-trophy"></i> WOTW Event
         </a>
     </div>
 
